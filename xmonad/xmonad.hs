@@ -117,11 +117,11 @@ windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 myStartupHook :: X ()
-myStartupHook = do
-  spawnOnce "xrdb /home/aureus/.Xresources &"
-  spawnOnce "picom --config /home/aureus/.config/picom/picom.conf &"
+myStartupHook = do -- Put your user in the correct location
+  spawnOnce "xrdb /home/<Your User>/.Xresources &"
+  spawnOnce "picom --config /home/<Your User>/.config/picom/picom.conf &"
   spawnOnce "nitrogen --restore &"
-  spawnOnce "/home/aureus/.config/polybar/launch.sh &"
+  spawnOnce "/home/<Your User>/.config/polybar/launch.sh &"
 
 
 
